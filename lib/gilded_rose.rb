@@ -2,14 +2,15 @@ require "qualityhandlerbase.rb"
 require "agedbriehandler.rb"
 require "backstagehandler.rb"
 require "sulfurashandler.rb"
-
+require "conjuredhandler.rb"
 
 class GildedRose
   attr_reader :name, :days_remaining, :quality
 
   @@items = {:aged => 'Aged Brie', 
              :sulfuras => 'Sulfuras, Hand of Ragnaros',
-            :backstage => 'Backstage passes to a TAFKAL80ETC concert'}
+            :backstage => 'Backstage passes to a TAFKAL80ETC concert',
+            :conjure => 'Conjured Mana Cake'}
 
   def initialize(name, days_remaining, quality)
     @name = name
@@ -28,6 +29,9 @@ class GildedRose
 
       elsif @name == @@items[:sulfuras]
         handler = SulfurasHandler.new self.days_remaining, self.quality
+
+      elsif @name == @@items[:conjure]
+        handler = ConjureHandler.new self.days_remaining, self.quality
 
       else
          handler = QualityHandlerBase.new self.days_remaining, self.quality
