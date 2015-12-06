@@ -1,6 +1,12 @@
-class SulfurasHandler < QualityHandlerBase{
+require "qualityhandlerbase.rb"
 
-	def handle (item){
+class SulfurasHandler < QualityHandlerBase
 
-	}
-}
+	def handle  
+
+		 #no change
+
+
+	end
+
+end
