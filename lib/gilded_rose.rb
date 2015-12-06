@@ -13,11 +13,12 @@ class GildedRose
   end
 
   def tick
+     
 
-    if @name != 'Aged Brie' && @name != 'Backstage passes to a TAFKAL80ETC concert'
+    if @name !=  @@items[:aged] && @name != @@items[:backstage]
       
       if @quality > 0
-        if @name != 'Sulfuras, Hand of Ragnaros'
+        if @name != @@items[:sulfuras]
           @quality -= 1
         end
       end
@@ -26,7 +27,7 @@ class GildedRose
     else
       if @quality < 50
         @quality += 1
-        if @name == 'Backstage passes to a TAFKAL80ETC concert'
+        if @name == @@items[:backstage]
           if @days_remaining < 11
             if @quality < 50
               @quality += 1
@@ -44,17 +45,17 @@ class GildedRose
 
 
 
-    if @name != 'Sulfuras, Hand of Ragnaros'
+    if @name != @@items[:sulfuras]
       @days_remaining -= 1
     end
 
     if @days_remaining < 0
 
-      if @name != 'Aged Brie'
+      if @name != @@items[:aged]
 
-        if @name != 'Backstage passes to a TAFKAL80ETC concert'
+        if @name != @@items[:backstage]
           if @quality > 0
-            if @name != 'Sulfuras, Hand of Ragnaros'
+            if @name != @@items[:sulfuras]
               @quality -= 1
             end
           end
