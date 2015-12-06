@@ -1,19 +1,28 @@
 class GildedRose
   attr_reader :name, :days_remaining, :quality
 
+  @@items = {:aged => 'Aged Brie', 
+             :sulfuras => 'Sulfuras, Hand of Ragnaros',
+            :backstage => 'Backstage passes to a TAFKAL80ETC concert'}
+
   def initialize(name, days_remaining, quality)
     @name = name
     @days_remaining = days_remaining
     @quality = quality
+
   end
 
   def tick
+
     if @name != 'Aged Brie' && @name != 'Backstage passes to a TAFKAL80ETC concert'
+      
       if @quality > 0
         if @name != 'Sulfuras, Hand of Ragnaros'
           @quality -= 1
         end
       end
+
+
     else
       if @quality < 50
         @quality += 1
@@ -30,12 +39,19 @@ class GildedRose
           end
         end
       end
+
     end
+
+
+
     if @name != 'Sulfuras, Hand of Ragnaros'
       @days_remaining -= 1
     end
+
     if @days_remaining < 0
+
       if @name != 'Aged Brie'
+
         if @name != 'Backstage passes to a TAFKAL80ETC concert'
           if @quality > 0
             if @name != 'Sulfuras, Hand of Ragnaros'
@@ -45,11 +61,17 @@ class GildedRose
         else
           @quality = @quality - @quality
         end
+
       else
+
         if @quality < 50
           @quality += 1
         end
+
       end
+
     end
+
+
   end
 end
