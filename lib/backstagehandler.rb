@@ -1,0 +1,3 @@
+class BackStageHandler < QualityHandlerBase{
+	
+}
